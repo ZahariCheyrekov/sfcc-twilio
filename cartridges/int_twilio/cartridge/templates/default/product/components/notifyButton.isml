@@ -1,0 +1,3 @@
+<div>
+    <button type="submit" class="btn btn-primary">${Resource.msg("label.button.subscribe.notify.me", "out_of_stock_form", null)}</button>
+</div>
