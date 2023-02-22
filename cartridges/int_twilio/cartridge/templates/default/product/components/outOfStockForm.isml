@@ -1,0 +1,34 @@
+<section class="container subscribe-product-wrapper mt-2 px-0 ">
+    <isinclude template="/components/modules" />
+
+    <isset name="outOfStockForm" value="${pdict.forms.outOfStockForm}" scope="page" />
+
+    <div class="row justify-content-center subscribe-product-form-wrapper">
+        <div class="col">
+            <iscontentasset aid="out-of-stock-section" />
+            <isprint value="${pdict.outOfStockAsset}" encoding="on" />
+
+            <form class="subscribe-product-form" action="${URLUtils.url('Twilio-Subscribe')}" method="POST" <isprint
+                value="${outOfStockForm.attributes}" encoding="off" />>
+            <section
+                class="row no-gutters subscribe-product-form-fields-wrapper flex-nowrap flex-column flex-lg-row align-items-start">
+                <div class="col-lg-8 col-12 mb-0 mr-md-1 subscribe-product-form-input-wrapper form-group required">
+                    <input type="text" class="form-control" aria-describedby="phoneNumberHelp" placeholder="${Resource.msg("label.input.subscribe.phone.number.placeholder", "out_of_stock_form", null)}"
+                        data-range-error="${Resource.msg('error.message.phone.number.format', 'error', null)}"
+                        data-pattern-mismatch="${Resource.msg('error.message.phone.number.length', 'error', null)}"
+                        <isprint value=" ${outOfStockForm.phoneNumber.attributes}" encoding="off" />/>
+                </div>
+                <isinclude template="product/components/notifyButton" sf-toolkit="on" />
+
+                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+                <input type="hidden" value="${product.id}" class="input-product-id" <isprint
+                    value="${outOfStockForm.productSubscribeId.attributes}" encoding="off" />
+                />
+            </section>
+            </form>
+
+            <div class="subscribe-product-result alert text-center mt-3 mb-0">
+            </div>
+        </div>
+    </div>
+</section>
