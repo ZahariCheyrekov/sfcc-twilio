@@ -3,7 +3,7 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets');
         assets.addJs('/js/productDetail.js');
-        assets.addJs('/js/subscribeDialog.js');
+        assets.addJs('/js/subscribeNotification.js');
         assets.addCss('/css/product/detail.css');
     </isscript>
 

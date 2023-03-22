@@ -113,9 +113,9 @@
                             </div>
 
                             <!-- Product availability notification -->
-                            <div class="productAvailabilityNotification ${!product.available ? "" : " d-none"}">
+                            <div class="outOfStockNotification ${!product.available ? "" : " d-none"}">
                                 <isset name="outOfStockForm" value="${pdict.forms.outOfStockForm}" scope="page" />
-                                <isinclude template="product/components/productAvailabilityNotification" />
+                                <isinclude template="product/components/outOfStockNotification" />
                             </div>
 
                             <div class="row">
