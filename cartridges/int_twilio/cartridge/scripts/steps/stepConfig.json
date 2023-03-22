@@ -1,0 +1,6 @@
+{
+    "notifyInStock": {
+        "PHONE_NUMBERS_SEPARATOR": ", ",
+        "OBJECT_TYPE": "OutOfStockForm"
+    }
+}
