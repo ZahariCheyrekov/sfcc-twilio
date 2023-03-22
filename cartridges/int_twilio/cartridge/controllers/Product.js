@@ -27,7 +27,7 @@ server.append('Show', csrfProtection.generateToken, function (req, res, next) {
 
     viewData.forms = { outOfStockForm };
 
-    const contentAssetID = 'out-of-stock-sectuyudyion';
+    const contentAssetID = 'out-of-stock-section';
     const outOfStockAsset = ContentMgr.getContent(contentAssetID);
 
     if (outOfStockAsset) {
