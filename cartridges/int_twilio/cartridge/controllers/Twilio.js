@@ -38,10 +38,11 @@ server.post(
 
         if (subscribeToProductForm.phoneNumber && subscribeToProductForm.productSubscribeId) {
             const newPhoneNumber = subscribeToProductForm.phoneNumber.value;
+
             if (!subscribeToProductForm.phoneNumber) {
                 res.json({
                     success: false,
-                    error: Resource.msg('error.message.parse.phone', 'subscribeOutOfStock', null)
+                    error: Resource.msg('error.message.phone.number.format', 'error', null)
                 });
                 return next();
             }
@@ -49,8 +50,9 @@ server.post(
             const subscribeToProductResult = CustomObjectMgr.getCustomObject(customObjectType, productId);
 
             if (!empty(subscribeToProductResult)) {
-                const phoneNumbers = subscribeToProductResult.custom.phoneNumbers;
+                let phoneNumbers = subscribeToProductResult.custom.phoneNumbers;
                 const phoneNumbersArr = phoneNumbers.split(", ");
+
                 if (!phoneNumbersArr.includes(newPhoneNumber)) {
                     phoneNumbersArr.push(newPhoneNumber);
                     phoneNumbers = phoneNumbersArr.join(", ");
