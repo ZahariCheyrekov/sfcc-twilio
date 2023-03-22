@@ -1,0 +1,11 @@
+{
+    "step-types": {
+        "script-module-step": [
+            {
+                "@type-id": "custom.NotifyBackInStock",
+                "description": "Sends SMS to all customer that are subscribed to the newsletter when a given products is back in-stock",
+                "module": "int_twilio/cartridge/scripts/steps/NotifyBackInStock"
+            }
+        ]
+    }
+}
