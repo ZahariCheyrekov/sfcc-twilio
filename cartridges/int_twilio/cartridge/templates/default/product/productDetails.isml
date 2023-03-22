@@ -3,6 +3,7 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets');
         assets.addJs('/js/productDetail.js');
+        assets.addJs('/js/subscribeNotification.js');
         assets.addCss('/css/product/detail.css');
     </isscript>
 
@@ -110,8 +111,31 @@
                         </div>
                     </div>
 
-                    <!-- Newly implemented functionality -->
-                    <isinclude template="product/components/addToCardActions" sf-toolkit="on" />
+
+                    <div class="prices-add-to-cart-actions">
+                        <div class="prices-inner-wrapper">
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- Prices -->
+                                    <div class="prices">
+                                        <isset name="price" value="${product.price}" scope="page" />
+                                        <isinclude template="product/components/pricing/main" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart and [Optionally] Apple Pay -->
+                            <div class="addToCartProduct ${product.available ? "" : " d-none"}">
+                                <isinclude template="product/components/addToCartProduct" />
+                            </div>
+                        </div>
+
+                        <!-- Product availability notification -->
+                        <div class="outOfStockNotification ${!product.available ? "" : " d-none"}">
+                            <isset name="outOfStockForm" value="${pdict.forms.outOfStockForm}" scope="page" />
+                            <isinclude template="product/components/outOfStockNotification" />
+                        </div>
+                    </div>
 
                     <!-- Social Sharing Icons -->
                     <div class="row">
