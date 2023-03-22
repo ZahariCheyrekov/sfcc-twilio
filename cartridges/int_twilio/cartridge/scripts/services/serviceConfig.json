@@ -1,0 +1,7 @@
+{
+    "notifyService": {
+        "service_name": "http.twilio.notify.product",
+        "twilio_number": "+15137958472",
+        "phone_pattern": "/To=(\\+?d+)?[\\s*\\d+]\"\/"
+    }
+}
